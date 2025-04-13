@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB ETL Pipeline</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>MongoDB ETL Pipeline</h1>
+        <input type="text" id="mongoUri" placeholder="Enter MongoDB Connection String">
+        <button onclick="runETL()">Run ETL on All Collections</button>
+
+        <div id="csvLinksContainer">
+            <h3>Download CSVs:</h3>
+        </div>
+    </div>
+
+    <script>
+        function runETL() {
+            const mongoUri = document.getElementById("mongoUri").value;
+            fetch("/run_etl", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ mongo_uri: mongoUri })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        const csvLinksContainer = document.getElementById("csvLinksContainer");
+                        csvLinksContainer.innerHTML = "<h3>Download CSVs:</h3>";
+                        data.csv_files.forEach(file => {
+                            csvLinksContainer.innerHTML += `<a href="/download/${file}" target="_blank">${file}</a><br>`;
+                        });
+                    }
+                })
+                .catch(error => console.error("Error running ETL:", error));
+        }
+    </script>
+</body>
+
+</html>

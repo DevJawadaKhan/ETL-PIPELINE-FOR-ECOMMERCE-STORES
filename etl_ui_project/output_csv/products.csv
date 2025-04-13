@@ -1,0 +1,4 @@
+_id,name,image,brand,quantity,category,description,rating,numReviews,price,countInStock,reviews,createdAt,updatedAt,__v,processed_at
+677d864a73460241a79b18a7,Dog ,/uploads\image-1736279601099.jpg,Germen,20,674610ce0fbb3ddcc532db77,Nill,0,0,20,25,[],2025-01-07 19:53:46.020,2025-01-07 19:53:46.020,0,2025-01-09 23:33:36.596556
+677d87ae73460241a79b18ef,Cat ,/uploads\image-1736279953050.jpg,Cat Persion,1,674610d20fbb3ddcc532db7b,Blue eyes cat,0,0,2000,23,[],2025-01-07 19:59:42.187,2025-01-07 19:59:42.187,0,2025-01-09 23:33:36.596556
+677d880273460241a79b18f5,Puppy ,/uploads\image-1736280038425.jpg,Dog,1,674610ce0fbb3ddcc532db77,Red Eye puppy,0,0,206,25,[],2025-01-07 20:01:06.207,2025-01-07 20:01:06.207,0,2025-01-09 23:33:36.596556
